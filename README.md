@@ -1,5 +1,7 @@
 # Homework-4
-
+#author: Hoang Vo
+#Basing on the HW4-starter-code
+#begin: Nov 1st, 2019
 First 5 days, download the zip file from Blackboard, unzip, could not run on Visual Studio.
   -add independencies into the VC properties: window-only-stuff, new Eigen3.7 (ask TA about the Eigen issue)
       The link to download Eiga 3.7: http://eigen.tuxfamily.org/index.php?title=Main_Page
