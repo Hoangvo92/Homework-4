@@ -57,7 +57,9 @@ On November 9, 2019, try to solve the first problem:
 
     return hitColor;
 } "
+    +Using the solution of Phong.frag from Homework3.
     + before writing code, i used comment to mark the resemble variables in starter code: hitColor==result, hitObject==r
+    +Using Ambient+ diffuse+ specular to compute the color of image
     +In the function trace(), after r has values, I perform the computation of hitcolor==result, having shading and color.
     -In main.cpp, I add variable color to input into shape. THe DoubleRand() function will generate values of Vector3d color, or I simply hard-code the values.
     
