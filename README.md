@@ -57,11 +57,63 @@ On November 9, 2019, try to solve the first problem:
 
     return hitColor;
 } "
-    +Using the solution of Phong.frag from Homework3.
+    +Using the solution of Phong.frag from Homework3 to add in the shading effect.
     + before writing code, i used comment to mark the resemble variables in starter code: hitColor==result, hitObject==r
     +Using Ambient+ diffuse+ specular to compute the color of image
     +In the function trace(), after r has values, I perform the computation of hitcolor==result, having shading and color.
     -In main.cpp, I add variable color to input into shape. THe DoubleRand() function will generate values of Vector3d color, or I simply hard-code the values.
+    -THe results are quite good. I stored the picture with names "Step_2%" as examples. The two folders COSC4370Step2/ and COSC4370Step2_2 have the code and results. In my opinion, the code in COSC4370Step2_2 gives out better result.
+    -among picture outputs, the "step2_5_good" gives out the best result of shapes with color.
+
+
+From November 10 to November 12, I tried to do problem 3:
+   "Casting shadows in the image."
+   -I applied the lectures in class.
+   -I have used many references and explanation on the internet:
+        +https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-shading/ligth-and-shadows
+        +https://stackoverflow.com/questions/25942554/raytracing-shadows
+   - in the file Scene,cpp, I have tried to alternate the provided code:
+        +the pseudocode :
+         // shoot prim ray in the scene and search for intersection
+        Point pHit; 
+        Normal nHit; 
+        float minDist = INFINITY; 
+        Object object = NULL; 
+        for (int k = 0; k < objects.size(); ++k) { 
+            if (Intersect(objects[k], primRay, &pHit, &nHit)) { 
+                float distance = Distance(eyePosition, pHit); 
+                if (distance < minDistance) { 
+                    object = objects[k]; 
+                    minDistance = distance; // update min distance 
+                } 
+            } 
+        } 
+          //casting shadows-problem 3
+		//Pseudo code
+		  // shoot prim ray in the scene and search for intersection
+       
+        if (object != NULL) { 
+            // compute illumination
+            Ray shadowRay; 
+            shadowRay.direction = lightPosition - pHit; 
+            bool isShadow = false; 
+            for (int k = 0; k < objects.size(); ++k) { 
+                if (Intersect(objects[k], shadowRay)) { 
+                    isInShadow = true; 
+                    break; 
+                } 
+            } 
+        } 
+     
+       if (!isInShadow)
+          	pixels[i][j] = object->color * light.brightness;
+       else
+	         pixels[i][j] = 0;
+          }
+    -However, the result is a failure. There is no shadow, only black shapes. The failures are stored in "step3_fail" and "step3_fail2" pictures.
+    
+   
+        
     
   
        
